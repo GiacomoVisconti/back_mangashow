@@ -50,6 +50,7 @@ public class Manga {
     //!RELAZIONE CON GLI AUTORI
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
+    @NotNull
     private Author author;
 
     public Author getAuthor() {

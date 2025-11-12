@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomePageController {
     @GetMapping("/")
     public String index() {
-        return "";
+        return "redirect:/mangas/";
     }
     
 }

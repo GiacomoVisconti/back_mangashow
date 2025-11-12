@@ -58,7 +58,7 @@
 - [x] Creare lo schema ER con tutte le entità e relazioni.
 - [x] Definire chiavi primarie e chiavi esterne.
 - [] Implementare vincoli logici (es. stato ↔ numero_volumi).
-- [] Popolare il database con dati di esempio.
+- [x] Popolare il database con dati di esempio.
 
 ---
 
@@ -68,7 +68,7 @@
 - [ ] Creare ruoli (Admin, Editor).
 
 ### 3.2 CRUD
-- [ ] Implementare CRUD per Manga.
+- [x] Implementare CRUD per Manga.
 - [ ] Implementare CRUD per Volumi e Capitoli.
 - [ ] Implementare CRUD per Generi, Autori, Editori.
 - [ ] Implementare CRUD per Personaggi.
