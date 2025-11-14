@@ -77,6 +77,11 @@
                         <option class="fs-6" selected value="0">Select the Author</option>
                         <option class="fs-6"  th:each="author : ${authors}" th:value="${author.id}" th:text="|${author.firstName} ${author.lastName}|"></option>
                     </select>
+                    <div class="mb-3 ps-2 invalid-feedback" th:if="${#fields.hasErrors('author')}">
+                        <ul>
+                            <li th:each="error : ${#fields.errors('author')}" th:text="${error}"></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 

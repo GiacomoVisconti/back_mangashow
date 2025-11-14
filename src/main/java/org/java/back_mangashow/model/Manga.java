@@ -2,6 +2,9 @@ package org.java.back_mangashow.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,6 +14,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -23,10 +27,10 @@ public class Manga {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message = "The title field must be popolized")
+    @NotBlank(message = "The title field must be popolized.")
     private String title;
 
-    @NotNull
+    @NotNull(message = "You must popolize the year of publication field!")
     private Integer year_of_publication;
 
     @NotNull
@@ -50,8 +54,13 @@ public class Manga {
     //!RELAZIONE CON GLI AUTORI
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    @NotNull
+    @NotNull(message = "You cannot store a Manga without Author!")
     private Author author;
+
+    //!RELAZIONE CON LE RECENSIONI
+    @OneToMany(mappedBy = "manga", cascade = CascadeType.REMOVE)
+    @JsonBackReference
+    private List<Review> reviews;
 
     public Author getAuthor() {
         return author;

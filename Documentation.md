@@ -76,7 +76,7 @@
 
 ### 3.3 Validazioni
 - [ ] Validare coerenza tra stato e numero_volumi.
-- [ ] Rendere obbligatori i campi principali (titolo, autore, editore).
+- [x] Rendere obbligatori i campi principali (titolo, autore, editore).
 - [ ] Gestire relazioni coerenti (es. un capitolo deve appartenere a un volume).
 
 ---

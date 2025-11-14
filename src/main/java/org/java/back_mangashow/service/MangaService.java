@@ -24,7 +24,7 @@ public class MangaService {
         Optional<Manga> mangaOptional = mangaRepository.findById(id);
 
         if (mangaOptional.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pizza non trovata");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Manga non trovato");
         }
 
         return mangaOptional;
