@@ -52,9 +52,9 @@
                                 <tr th:each="review : ${reviews}" th:object="${review}">
                                     <td scope="row" th:text="*{id}"></td>
                                     <td th:text="*{user}"></td>
-                                    <td th:text="*{vote}"></td> 
+                                    <td>[[*{vote}]] /5</td> 
                                     <td th:text="*{comment}"></td> 
-                                    <td th:text="*{manga.title}"></td> 
+                                    <td><a th:href="|http://localhost:8080/mangas/*{manga.id}|"  th:text="*{manga.title}"></a></td> 
                                     <!-- ! CONTROLS -->
                                     <td>
                                         <a
