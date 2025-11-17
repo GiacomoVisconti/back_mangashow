@@ -44,8 +44,8 @@
                                     <th scope="col">VOTE</th>
                                     <th scope="col">COMMENT</th>
                                     <th scope="col">MANGA</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <th scope="col" sec:authorize="hasAuthority('ADMIN')"></th>
+                                    <th scope="col" sec:authorize="hasAuthority('ADMIN')"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -56,7 +56,7 @@
                                     <td th:text="*{comment}"></td> 
                                     <td><a th:href="|http://localhost:8080/mangas/*{manga.id}|"  th:text="*{manga.title}"></a></td> 
                                     <!-- ! CONTROLS -->
-                                    <td>
+                                    <td sec:authorize="hasAuthority('ADMIN')">
                                         <a
                                         name=""
                                         id=""
@@ -68,7 +68,7 @@
                                     </td>
 
                                     <!-- MODALE DI CANCELLAZIONE -->
-                                    <td>
+                                    <td sec:authorize="hasAuthority('ADMIN')">
                                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" th:data-bs-target="'#delete-modal-' + ${review.id}">
                                             Del
                                         </button>

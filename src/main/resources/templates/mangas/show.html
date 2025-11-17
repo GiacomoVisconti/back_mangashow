@@ -37,6 +37,7 @@
 
                     <div>
                         <a
+                            sec:authorize="hasAuthority('ADMIN')"
                             name=""
                             id=""
                             class="btn btn-warning"
@@ -44,7 +45,7 @@
                             role="button"
                             >Edit
                         </a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" th:data-bs-target="'#delete-modal-' + ${manga.id}">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" th:data-bs-target="'#delete-modal-' + ${manga.id}" sec:authorize="hasAuthority('ADMIN')">
                             Del
                             </button>
                             <div class="modal fade" aria-labelledby="delete-modal" aria-hidden="true" th:id="'delete-modal-' + ${manga.id}" tabindex="-1">
@@ -96,8 +97,8 @@
                                         <th scope="col">USER</th>
                                         <th scope="col">VOTE</th>
                                         <th scope="col">COMMENT</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
+                                        <th scope="col" sec:authorize="hasAuthority('ADMIN')"></th>
+                                        <th scope="col" sec:authorize="hasAuthority('ADMIN')"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -107,7 +108,7 @@
                                         <td th:text="*{vote}"></td> 
                                         <td th:text="*{comment}"></td> 
                                         <!-- ! CONTROLS -->
-                                        <td>
+                                        <td sec:authorize="hasAuthority('ADMIN')">
                                             <a
                                             name=""
                                             id=""
@@ -119,7 +120,7 @@
                                         </td>
     
                                         <!-- MODALE DI CANCELLAZIONE -->
-                                        <td>
+                                        <td sec:authorize="hasAuthority('ADMIN')">
                                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" th:data-bs-target="'#delete-modal-' + ${review.id}">
                                                 Del
                                             </button>

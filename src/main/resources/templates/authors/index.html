@@ -38,6 +38,7 @@
                         class="btn btn-success"
                         th:href="@{/authors/create}"
                         role="button"
+                        sec:authorize="hasAuthority('ADMIN')"
                         >Add New</a
                        >
                        
@@ -60,8 +61,8 @@
                                     <th scope="col">FIRST NAME</th>
                                     <th scope="col">LAST NAME</th>
                                     <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <th scope="col" sec:authorize="hasAuthority('ADMIN')"></th>
+                                    <th scope="col" sec:authorize="hasAuthority('ADMIN')"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -80,7 +81,7 @@
                                     >
                                     </td>
 
-                                    <td><a
+                                    <td sec:authorize="hasAuthority('ADMIN')"><a
                                         name=""
                                         id=""
                                         class="btn btn-warning btn-sm"
@@ -91,7 +92,7 @@
                                     </td>
 
                                     <!-- MODALE DI CANCELLAZIONE -->
-                                    <td>
+                                    <td sec:authorize="hasAuthority('ADMIN')">
                                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" th:data-bs-target="'#delete-modal-' + ${author.id}">
                                             Del
                                         </button>

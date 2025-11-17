@@ -28,8 +28,8 @@
                                     <th scope="col">YEAR OF PUBLICATION</th>
                                     <th scope="col">STATUS</th>
                                     <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <th scope="col" sec:authorize="hasAuthority('ADMIN')"></th>
+                                    <th scope="col" sec:authorize="hasAuthority('ADMIN')"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -57,18 +57,19 @@
                                     >
                                     </td>
 
-                                    <td><a
+                                    <td sec:authorize="hasAuthority('ADMIN')"><a
                                         name=""
                                         id=""
                                         class="btn btn-warning btn-sm"
                                         th:href="@{|/mangas/edit/*{id}|}"
                                         role="button"
+                                        sec:authorize="hasAuthority('ADMIN')"
                                         >Edit</a
                                     >
                                     </td>
 
                                     <!-- MODALE DI CANCELLAZIONE -->
-                                    <td>
+                                    <td sec:authorize="hasAuthority('ADMIN')">
                                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" th:data-bs-target="'#delete-modal-' + ${manga.id}">
                                             Del
                                         </button>
