@@ -1,5 +1,7 @@
 package org.java.back_mangashow.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,6 +34,8 @@ public class Review {
     private String comment;
 
     @ManyToOne
+    @JsonBackReference
+
     @JoinColumn(name = "manga_id", nullable = false)
     private Manga manga;
 

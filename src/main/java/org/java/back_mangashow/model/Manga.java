@@ -59,7 +59,6 @@ public class Manga {
 
     //!RELAZIONE CON LE RECENSIONI
     @OneToMany(mappedBy = "manga", cascade = CascadeType.REMOVE)
-    @JsonBackReference
     private List<Review> reviews;
 
     public List<Review> getReviews() {
