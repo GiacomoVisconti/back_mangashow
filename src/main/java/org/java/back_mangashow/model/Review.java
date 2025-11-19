@@ -35,7 +35,6 @@ public class Review {
 
     @ManyToOne
     @JsonBackReference
-
     @JoinColumn(name = "manga_id", nullable = false)
     private Manga manga;
 

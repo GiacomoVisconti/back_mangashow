@@ -26,7 +26,9 @@ public class SecurityConfiguration {
         .requestMatchers("/mangas", "/mangas/**").hasAnyAuthority("USER", "ADMIN")
         .requestMatchers("/").permitAll()
         .requestMatchers("/**").permitAll())
-        .formLogin(Customizer.withDefaults());
+        .formLogin(Customizer.withDefaults())
+        .cors(cors -> cors.disable())
+        .csrf(csrf -> csrf.disable());
 
         return http.build();
     }
